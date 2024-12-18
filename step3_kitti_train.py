@@ -30,21 +30,21 @@ train_sources = os.path.join(DATA_DIR, 'sources_train.hkl')
 val_file = os.path.join(DATA_DIR, 'X_val.hkl')
 val_sources = os.path.join(DATA_DIR, 'sources_val.hkl')
 
-# # Training parameters
+
+# Training parameters
 # nb_epoch = 150
 # batch_size = 4
 # samples_per_epoch = 500
 # N_seq_val = 100  # number of sequences to use for validation
 
-# nb_epoch = 20
-# batch_size = 8
-# samples_per_epoch = 200
-# N_seq_val = 20  # number of sequences to use for validation
+# Training parameters
+nb_epoch = 2
+batch_size = 4
+samples_per_epoch = 100
+N_seq_val = 1 # number of sequences to use for validation
+nt = 60  # 60프레임을 입력으로 사용하며 61번째 프레임을 예측하는 모델을 훈련
 
-nb_epoch = 1  # 훈련을 더 많이 시켜야 성능이 나옵니다
-batch_size = 1  # 일반적으로 더 큰 배치 크기가 효과적입니다
-samples_per_epoch = 50  # 충분한 샘플 수
-N_seq_val = 1 # 검증 데이터를 많이 사용
+
 
 
 # Model parameters
@@ -57,7 +57,6 @@ Ahat_filt_sizes = (3, 3, 3, 3)
 R_filt_sizes = (3, 3, 3, 3)
 layer_loss_weights = np.array([1., 0., 0., 0.])  # weighting for each layer in final loss; "L_0" model:  [1, 0, 0, 0], "L_all": [1, 0.1, 0.1, 0.1]
 layer_loss_weights = np.expand_dims(layer_loss_weights, 1)
-nt = 60  # !!!!!!!!!!!!!!!!!!!!!!!!!! 60 초후 예측 
 time_loss_weights = 1./ (nt - 1) * np.ones((nt,1))  # equally weight all timesteps except the first
 time_loss_weights[0] = 0
 
@@ -65,7 +64,6 @@ time_loss_weights[0] = 0
 prednet = PredNet(stack_sizes, R_stack_sizes,
                   A_filt_sizes, Ahat_filt_sizes, R_filt_sizes,
                   output_mode='error', return_sequences=True)
-
 
 inputs = Input(shape=(nt,) + input_shape)
 errors = prednet(inputs)  # errors will be (batch_size, nt, nb_layers)
