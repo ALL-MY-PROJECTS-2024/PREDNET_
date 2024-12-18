@@ -30,14 +30,25 @@ train_sources = os.path.join(DATA_DIR, 'sources_train.hkl')
 val_file = os.path.join(DATA_DIR, 'X_val.hkl')
 val_sources = os.path.join(DATA_DIR, 'sources_val.hkl')
 
-# Training parameters
-nb_epoch = 150
-batch_size = 4
-samples_per_epoch = 500
-N_seq_val = 100  # number of sequences to use for validation
+# # Training parameters
+# nb_epoch = 150
+# batch_size = 4
+# samples_per_epoch = 500
+# N_seq_val = 100  # number of sequences to use for validation
+
+# nb_epoch = 20
+# batch_size = 8
+# samples_per_epoch = 200
+# N_seq_val = 20  # number of sequences to use for validation
+
+nb_epoch = 5  # 훈련을 더 많이 시켜야 성능이 나옵니다
+batch_size = 2  # 일반적으로 더 큰 배치 크기가 효과적입니다
+samples_per_epoch = 5  # 충분한 샘플 수
+N_seq_val = 2 # 검증 데이터를 많이 사용
+
 
 # Model parameters
-n_channels, im_height, im_width = (3, 128, 160)
+n_channels, im_height, im_width = (3, 224, 224)
 input_shape = (n_channels, im_height, im_width) if K.image_data_format() == 'channels_first' else (im_height, im_width, n_channels)
 stack_sizes = (n_channels, 48, 96, 192)
 R_stack_sizes = stack_sizes
@@ -54,6 +65,7 @@ time_loss_weights[0] = 0
 prednet = PredNet(stack_sizes, R_stack_sizes,
                   A_filt_sizes, Ahat_filt_sizes, R_filt_sizes,
                   output_mode='error', return_sequences=True)
+
 
 inputs = Input(shape=(nt,) + input_shape)
 errors = prednet(inputs)  # errors will be (batch_size, nt, nb_layers)

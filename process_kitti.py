@@ -12,8 +12,9 @@ from scipy.misc import imresize
 import hickle as hkl
 from kitti_settings import *
 
+from PIL import Image
 
-desired_im_sz = (128, 160)
+desired_im_sz = (640, 640)
 categories = ['city', 'residential', 'road']
 
 # Recordings used for validation and testing.

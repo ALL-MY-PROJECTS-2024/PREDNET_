@@ -1,0 +1,45 @@
+
+pip install virtualenv
+
+
+# 원하는 디렉토리로 이동
+cd C:\path\to\your\project
+
+
+
+C:\Users\jwg13\AppData\Local\Programs\Python\Python36-32\Scripts\pip.exe 
+C:\Users\jwg13\AppData\Local\Programs\Python\Python36-32\python.exe -m pip install numpy==1.16.6
+C:\Users\jwg13\AppData\Local\Programs\Python\Python36-32\python.exe -m pip install six
+C:\Users\jwg13\AppData\Local\Programs\Python\Python36-32\python.exe -m pip install keras
+
+
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe -m pip install tensorflow==1.15.0
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe -m pip install keras==2.2.4
+
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe -m pip uninstall protobuf
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe -m pip install protobuf==3.20.0
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe -m pip install opencv-python
+
+
+
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe -m pip install
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe .\kitti_train.py  
+
+
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe pip install --upgrade h5py
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe python test.py
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe python kitti_train.py
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe  kitti_evaluate.py  
+
+
+
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe -m pip install flask
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe -m pip install opencv-python
+C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe -m pip install flask_cors
+
+
+ C:\Users\jwg13\AppData\Local\Programs\Python\Python37\python.exe .\test_opencv.py
+
+
+ test -> train -> evalutate -> 영상 나옴
+ 

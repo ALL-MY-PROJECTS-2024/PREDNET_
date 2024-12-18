@@ -62,10 +62,10 @@ class PredNet(Recurrent):
     @legacy_prednet_support
     def __init__(self, stack_sizes, R_stack_sizes,
                  A_filt_sizes, Ahat_filt_sizes, R_filt_sizes,
-                 pixel_max=1., error_activation='relu', A_activation='relu',
+                 pixel_max=1., error_activationerror_activation='relu', A_activation='relu',
                  LSTM_activation='tanh', LSTM_inner_activation='hard_sigmoid',
                  output_mode='error', extrap_start_time=None,
-                 data_format=K.image_data_format(), **kwargs):
+                 data_format=K.image_data_format(),error_activation='relu', **kwargs):
         self.stack_sizes = stack_sizes
         self.nb_layers = len(stack_sizes)
         assert len(R_stack_sizes) == self.nb_layers, 'len(R_stack_sizes) must equal len(stack_sizes)'
